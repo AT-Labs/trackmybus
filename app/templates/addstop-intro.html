@@ -1,0 +1,35 @@
+<ion-view hide-back-button="true">
+
+    <ion-nav-title>Stops</ion-nav-title>
+    <ion-nav-buttons side="left">
+        <div class="ATlogo"></div>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon icon ATicon-plus" ui-sref="findstop"></button>
+    </ion-nav-buttons>
+
+    <ion-content scroll="false" class="intro">
+
+        <notify-user></notify-user>
+
+        <div class="splash" ui-sref="findstop">
+            <div class="splash-content-wrapper">
+                <div class="splash-content">
+                    <p class="icon ATicon-bus"></p>
+                    <p>Add a stop to get started</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <!-- @if debug -->
+    <debug-panel minimized="minimized" class="debug-panel">
+        <a>X</a>
+        <div class="info" >
+            Debug mode is on
+        </div>
+
+    </debug-panel>
+    <!-- @endif -->
+
+</ion-view>

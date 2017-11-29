@@ -1,0 +1,202 @@
+/*
+*	AT logo
+*/
+.ATlogo {
+    width: 27px;
+    height: 27px;
+    margin-top: 3px;
+    margin-left: 11px;
+    background: url("../img/logo-at.svg") no-repeat 0 0 transparent;
+}
+/*
+*	TODO: FIX THIS!!!
+*	override Ionic positioning on popup for IOS
+*/
+.platform-ios .popup.active {
+    margin-top: -42px !important;
+}
+
+input[type='text'] {
+    color: $lochmara;
+    font-size: 17px;
+    line-height: inherit;
+}
+/* hide the leaflet layer control - not currently possible through configuration */
+.leaflet-control-layers.leaflet-control {
+    display: none;
+}
+/* generic */
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.labelled {
+    color: $lochmara;
+}
+/* list */
+.list-title {
+    text-align: center;
+    font-size: 17px;
+    color: $ATWhite;
+    background-color: $lochmara;
+}
+
+.list-select-title {
+    font-size: 14px;
+    color: $shuttlegray;
+    line-height: 30px;
+    background-color: $catskillwhite;
+}
+
+.scheduleditem {
+    background-color: $catskillwhite;
+}
+/*
+ * map
+ */
+.over-map {
+    z-index: 1000;
+}
+/*
+*	geolocation marker
+*/
+.geolocate {
+    background-color: transparent !important;
+    border: none !important;
+
+    .ATicon-user {
+        font-size: 24px;
+        position: absolute;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 1;
+        top: 6px;
+        left: 6px;
+        width: 28px;
+        height: 28px;
+        line-height: 1 !important;
+        /* TODO: set this in directive correctly so no need to override */
+        color: $ATWhite;
+        background-color: $lima;
+        border: 2px solid $ATWhite;
+    }
+}
+
+.geolocate .radiator {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border-radius: 40px;
+    border: 0 solid rgb(147, 189, 27);
+    border: 0 solid rgba(147, 189, 27, 0);
+    @include animation( 'radiateGeolocation 1.5s infinite');
+}
+/*
+*	bus marker
+*/
+.ride {
+    background-color: transparent !important;
+    border: none !important;
+
+    .ATicon-bus,
+    .ATicon-train,
+    .ATicon-ferry {
+        font-size: 19px;
+        position: absolute;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 2 !important; /*1 !important;*/
+        /* TODO: set this in directive correctly so no need to override */
+        color: $ATWhite;
+        background-color: $lochmara;
+        border: 2px solid $ATWhite;
+    }
+    
+    & .radiator {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        border-radius: 40px;
+        border: 0 solid rgb(17, 132, 206);
+        border: 0 solid rgba(17, 132, 206, 0);
+        @include animation( 'radiateBus 1.5s infinite');
+    }
+}
+
+.location-pin {
+    color: $red;
+    font-size: 42px;
+}
+
+.ride-stop {
+    font-size: 19px;
+    
+    border-radius: 5px;
+    text-align: center;
+    
+    color: $ATWhite;
+    background-color: $pickledbluewood;
+    border: none;
+    padding-top: 3px;
+    
+    &.active {
+        background-color: $lochmara;
+    }
+    
+    &.saved {
+        background-color: darken($lima, 20%);
+    }
+    
+    &.saved.active {
+        background-color: $lima;
+    }
+}
+
+/* debug panel */
+.debug-panel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 999999;
+    background-color: #ededed;
+    width: 100%;
+    box-sizing: border-box;
+
+    a {
+        line-height: 1;
+        display: block;
+    }
+
+    .info {
+        overflow: scroll;
+        overflow-x: hidden;
+        max-height: 200px;
+    }
+
+    &.minimized {
+        max-height: none;
+        overflow: hidden;
+
+        .info {
+            height: 0;
+        }
+    }
+
+    &.departure {
+        bottom: 44px;
+    }
+
+    .green {
+        color: green;
+    }
+}

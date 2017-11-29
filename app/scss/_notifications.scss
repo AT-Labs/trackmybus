@@ -1,0 +1,22 @@
+.card {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+
+    .item {
+        color: $ATWhite;
+    }
+}
+
+.card.error .item {
+    background-color: $assertive;
+}
+
+.card.warning .item {
+    background-color: $energized;
+}
+
+.card.info .item {
+    background-color: $balanced;
+}

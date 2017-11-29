@@ -1,0 +1,40 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <div class="buttons">
+            <div class="ATlogo"></div>
+        </div>
+        <h1 class="title">Track My Bus</h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+        <ion-slides options="options" slider="data.slider">
+            <ion-slide-page>
+                <div class="intro tutorial-slide">
+                    <h1>Intro</h1>
+                    <p>Track My Bus lets you know how many stops away your bus is.</p>
+                    <p>To track your bus you simply select your stop and then select the bus you want to track.</p>
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div class="intro tutorial-slide">
+                    <h1>Searching for a Stop</h1>
+                    <p>Click on <i class="tutorial-icon icon ATicon-plus"></i> to find your stop.</p>
+                    <img src="img/tutorial-add-stop.png" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div class="intro tutorial-slide">
+                    <h1>Adding Buses to Track</h1>
+                    <p>Once you find your stop select the buses you want to track and save that stop.</p>
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div class="intro tutorial-slide">
+                    <h1>Tracking your Bus</h1>
+                    <p>When your bus is 10 stops away it will appear in the app.</p>
+                    <p>Select the bus to track it in realtime on the map.</p>
+                    <button class="button button-full button-positive" ng-click="closeTutorial()">Got it!</button>
+                </div>
+            </ion-slide-page>
+        </ion-slides>
+    </ion-content>
+</ion-modal-view>

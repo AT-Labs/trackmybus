@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   id="svg3013"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="New document 2">
+  <defs
+     id="defs3015" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.4"
+     inkscape:cx="9.9334994"
+     inkscape:cy="13.462882"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1148"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="1,0"
+       position="4.0406102,60.104077"
+       id="guide3060" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="28.031733,45.330596"
+       id="guide3062" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="31.946074,66.796337"
+       id="guide3066" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-61.240498,3.9143411"
+       id="guide3068" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="13.131983,31.819805"
+       id="guide3070" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="4.0406102,28.158002"
+       id="guide3072" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="15.973037,19.571706"
+       id="guide3847" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="25.885159,11.55362"
+       id="guide3849" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="34.282052,10.101525"
+       id="guide3851" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="15.199639,1.9098197"
+       id="guide3853" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3018">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layerw" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1020.3622)">
+    <g
+       transform="translate(9.5021913e-4,-0.28125022)"
+       id="layer1-09"
+       inkscape:label="Layer 1">
+      <g
+         inkscape:label="Layer 1"
+         id="layer1-0"
+         transform="matrix(0.62591741,0,0,0.60522083,-186.85302,705.62019)">
+        <g
+           transform="matrix(0.88888889,0,0,0.88888889,11.111344,144.60322)"
+           id="my_location">
+          <g
+             id="g3119">
+            <path
+               style="fill:#000000;fill-opacity:1"
+               inkscape:connector-curvature="0"
+               d="m 352.1,437.4 0,0 c -3.9,0 -7.1,3.3 -7.1,7.2 0,4 3.2,7.3 7.1,7.2 h 0 c 3.9,0 7.1,-3.2 7.1,-7.2 0,-3.9 -3.2,-7.1 -7.1,-7.2 z"
+               id="path3121" />
+            <path
+               sodipodi:nodetypes="csscc"
+               style="fill:#000000;fill-opacity:1"
+               inkscape:connector-curvature="0"
+               d="m 370.89389,463.60014 c -1.7,-3.7 -8.28597,-9.52911 -11.38597,-9.52911 l -15,0 c -3.1,0 -9.49106,5.92911 -11.19106,9.52911 8.48581,15.0991 28.86358,15.22695 37.57703,0 z"
+               id="path3123" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

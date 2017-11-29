@@ -1,0 +1,111 @@
+{
+  "name": "track-my-bus",
+  "version": "1.1.0",
+  "description": "AT Track My Bus",
+  "repository": "",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "bower install && gulp build && ionic state restore",
+    "start": "gulp build && ionic serve",
+    "build": "gulp build",
+    "serve": "ionic serve",
+    "ionic": "ionic",
+    "gulp": "gulp"
+  },
+  "engines": {
+    "npm": "~6.12.0"
+  },
+  "dependencies": {
+    "cordova-android": "^5.2.2",
+    "cordova-ios": "^4.2.1",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-customurlscheme": "^4.3.0",
+    "cordova-plugin-file": "^4.3.3",
+    "cordova-plugin-geolocation": "^2.4.3",
+    "cordova-plugin-google-analytics": "^0.8.1",
+    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-network-information": "^1.3.4",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-statusbar": "^2.2.3",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "ionic-plugin-keyboard": "^2.2.1"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "cordova": "^7.0.1",
+    "del": "^2.2.0",
+    "eslint": "^3.7.1",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-chmod": "^1.2.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-env": "^0.4.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-html2js": "^0.4.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-preprocess": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace-task": "^0.11.0",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-sass": "^2.3.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "ionic": "^2.2.0",
+    "q": "^2.0.2",
+    "run-sequence": "^1.2.1",
+    "shelljs": "^0.7.0",
+    "yargs": "^4.7.1"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist@~1.3.0",
+    "cordova-plugin-file@~4.3.0",
+    "cordova-plugin-inappbrowser@~1.7.1",
+    "cordova-plugin-geolocation@~2.4.0",
+    "cordova-plugin-network-information@~1.3.0",
+    "cordova-plugin-google-analytics@~0.8.1",
+    "cordova-plugin-splashscreen@~4.0.0",
+    "cordova-plugin-statusbar@~2.2.0",
+    "ionic-plugin-keyboard@~2.2.1",
+    "cordova-plugin-customurlscheme@~4.2.0",
+    {
+      "id": "cordova-plugin-customurlscheme",
+      "locator": "cordova-plugin-customurlscheme",
+      "variables": {
+        "URL_SCHEME": "attrackmyride"
+      }
+    }
+  ],
+  "cordovaPlatforms": [
+    "ios@4.2.1",
+    "android@5.2.2"
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-customurlscheme": {
+        "URL_SCHEME": "attrackmyride",
+        "ANDROID_SCHEME": " ",
+        "ANDROID_HOST": " ",
+        "ANDROID_PATHPREFIX": "/"
+      },
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-google-analytics": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "ionic-plugin-keyboard": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

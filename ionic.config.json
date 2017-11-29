@@ -1,0 +1,10 @@
+{
+    "name": "Track My Bus",
+    "app_id": "track_my_bus",
+
+    "gulpStartupTasks": ["default"],
+
+    "watchPatterns": [
+        "www/**/*"
+    ]
+}

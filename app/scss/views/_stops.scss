@@ -1,0 +1,60 @@
+/* stops */
+.stop-list-item-title {
+    display: inline;
+    font-size: 32px;
+    line-height: normal;
+    color: $pickledbluewood;
+    margin-left: 5px;
+    @include ellipsis;
+}
+
+.stop-list-item-icon {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+    text-align: center;
+    line-height: normal;
+    background-color: $pickledbluewood;
+    color: $ATWhite;
+    border-radius: 7px;
+    padding-top: 4px;
+}
+
+.stop-list-item-description {
+    font-size: 14px;
+    color: $rollingstone;
+    @include ellipsis;
+}
+
+.labelledstop {
+    color: $lochmara;
+}
+
+.editDeleteButton {
+    font-size: 18px;
+    font-family: 'OpenSansLight', arial, helvetica, sans-serif;
+    /* vertical and horizontal text center */
+    span {
+        height: 100%;
+        width: 100%;
+        display: table;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+.editStop {
+    width: 100px;
+    background-color: $silver;
+    color: $ATWhite;
+}
+
+.deleteStop {
+    width: 100px;
+    background-color: $assertive;
+    color: $ATWhite;
+}

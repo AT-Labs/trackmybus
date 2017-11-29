@@ -1,0 +1,46 @@
+<ion-view>
+
+    <ion-nav-title>{{::stopDeparture.routeId}}</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon button-icon-large icon ion-android-locate" ng-disabled="!stopDeparture.pathDrew || !userPosition" ng-click="stopDeparture.centerOnUser()"></button>
+    </ion-nav-buttons>
+
+    <ion-content padding="false" scroll="false" class="has-footer">
+
+        <notify-user></notify-user>
+
+        <!-- data-tap-disabled attribute required to allow click events when coming back to this screen from the add routes screen. see:
+            http://forum.ionicframework.com/t/losing-event-binding/4111/3
+            http://ionicframework.com/docs/api/page/tap/ -->
+
+        <div data-tap-disabled="true">
+            <div id="stopDepartureMap"></div>
+        </div>
+    </ion-content>
+    
+    <ion-footer-bar class="footer" ng-click="stopDeparture.centerOnVehicule(true)">
+        <div ng-if="stopDeparture.stopsAway > 0" class="title">
+            <i class="ATicon-clock"></i>
+            <span><ng-pluralize count="stopDeparture.stopsAway" when="{'0': '', 'one': '1 stop away', 'other': '{} stops away'}"></ng-pluralize></span>
+        </div>
+        <div ng-if="stopDeparture.stopsAway === 0 && !stopDeparture.hasGone" class="title">
+            <i class="ATicon-clock"></i>
+            <span>Bus has arrived</span>
+        </div>
+        <div ng-if="(stopDeparture.stopsAway === 0 && stopDeparture.hasGone) || stopDeparture.stopsAway < 0" class="title">
+            <i class="ATicon-clock"></i>
+            <span>Bus has departed</span>
+        </div>
+    </ion-footer-bar>
+    
+    <!-- @if debug -->
+    <debug-panel minimized="minimized" class="debug-panel departure">
+        <a>X</a>
+        <div class="info" >
+            Stops away: {{stopDeparture.stopsAway}}<br/>
+            Has gone: {{stopDeparture.hasGone}}<br/>
+        </div>
+    </debug-panel>
+    <!-- @endif -->
+
+</ion-view>

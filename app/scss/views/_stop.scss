@@ -1,0 +1,74 @@
+/* stop */
+.stop-list .item.list-title {
+    height: auto;
+    min-height: 0;
+}
+
+.stop-list .item {
+    min-height: 74px;
+
+    &.disabled {
+        //TODO: re-enable for disabled state
+        background-color: $catskillwhite;
+    }
+}
+
+.stop-list .left-column {
+    display: inline-block;
+    text-align: left;
+    float: left;
+    vertical-align: top;
+    width: 70%;
+}
+
+.stop-list .right-column {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 30%;
+    float: right;
+}
+
+.stop-list .route-code {
+    min-width: 22%;
+    display: inline-block;
+    color: $pickledbluewood;
+}
+
+.stop-list .route-name {
+    /* TODO: this is shared with an add_route.scss rule - should probably make it generic */
+    display: inline-block;
+    font-size: 12px;
+    width: 60%;
+    white-space: normal;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: $shuttlegray;
+    vertical-align: top;
+}
+
+.stop-list .departure-label {
+    display: block;
+    text-align: left;
+    color: $rollingstone;
+}
+
+.stop-list .departure-time {
+    display: block;
+    text-align: left;
+    margin-top: 2px;
+    color: #93bd1b;
+}
+
+.stop-list .scheduleditem .departure-time {
+    display: block;
+    text-align: left;
+    margin-top: 2px;
+    color: $lochmara;
+}
+
+.stop-list .departure-message {
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+node_modules/
+app/lib/
+platforms/
+plugins/
+resources/ios
+resources/android
+www/
+design_resources/*.keystore
+npm-debug.log

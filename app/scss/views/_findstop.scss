@@ -1,0 +1,93 @@
+/* findstop */
+.leaflet-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#addStopMap.leaflet-container {
+    top: 45px;
+}
+
+.find-stop-geocoder {
+    padding-left: 15px;
+    
+    .spinner {
+        width: 16px;
+        height: 34px;
+        margin-right: 15px;
+    }
+}
+
+.action-instructions {
+    background-color: $lochmara;
+    color: $ATWhite;
+    font-weight: normal;
+    font-size: 14px;
+    font-style: italic;
+}
+/* stop popup (override leaflet) */
+.leaflet-popup.stop .leaflet-popup-content-wrapper,
+.leaflet-popup.stop .leaflet-popup-tip {
+    background-color: $lochmara;
+    box-shadow: none;
+}
+/* stop active popup (override leaflet) */
+//TODO: change color when doug is ready
+
+.leaflet-popup.stop.saved .leaflet-popup-content-wrapper,
+.leaflet-popup.stop.saved .leaflet-popup-tip {
+    background-color: $lochmara;
+}
+
+.leaflet-popup.stop .leaflet-popup-tip-container {
+    left: 0;
+    margin: 0 0 0 15px;
+}
+
+.leaflet-popup.stop .leaflet-popup-content-wrapper {
+    color: $ATWhite;
+    font-size: 14px;
+    border-radius: 1px;
+}
+
+.leaflet-popup.stop .leaflet-popup-content {
+    margin: 0;
+}
+
+.leaflet-popup.stop .leaflet-popup-content div.ATicon-right-arrow {
+    position: absolute;
+    right: 15px;
+    font-size: 15px;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.leaflet-popup.stop .leaflet-popup-content span {
+    width: 190px;
+    display: block;
+    line-height: 1;
+}
+
+.leaflet-popup.stop .leaflet-popup-content span.stop {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.leaflet-popup.stop .leaflet-popup-content a {
+    position: relative;
+    width: 250px;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: $ATWhite;
+}
+
+.ATicon-search {
+    line-height: 34px;
+    margin-right: 15px;
+    color: $rollingstone;
+    font-size: 17px;
+}

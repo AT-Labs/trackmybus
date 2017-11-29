@@ -1,0 +1,25 @@
+{
+  "name": "wheres_my_bus",
+  "private": "true",
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "~1.4.14",
+    "angular-animate": "~1.4.14",
+    "angular-sanitize": "~1.4.14",
+    "angular-ui-router": "~0.2.18",
+    "angular-loading-bar": "~0.9",
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "leaflet": "~1.0",
+    "leaflet.markercluster": "~1.0",
+    "lodash": "~2.4.1",
+    "moment": "~2.7.0",
+    "lokijs": "^1.4.1",
+    "loki-cordova-fs-adapter": "^1.0.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.14",
+    "angular-animate": "~1.4.14",
+    "angular-sanitize": "~1.4.14",
+    "angular-ui-router": "~0.2.18"
+  }
+}

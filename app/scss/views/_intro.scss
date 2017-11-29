@@ -1,0 +1,41 @@
+/*intro */
+.intro {
+    background: url("../img/splash-bg.png") no-repeat 0 0 transparent;
+}
+
+.splash {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -100px;
+}
+
+.splash-content-wrapper {
+    display: table;
+}
+
+.splash-content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $lochmara;
+    color: $ATWhite;
+    border-radius: 200px;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 15px 10px #cdd3d8;
+}
+
+.splash-content p {
+    font-size: 24px;
+    line-height: 1;
+    padding: 10px;
+    margin: 0;
+}
+
+.splash-content p.ATicon-bus {
+    padding: 0;
+    font-size: 50px;
+}

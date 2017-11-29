@@ -1,0 +1,43 @@
+<ion-view>
+
+    <ion-nav-title>Stop {{::stopCode}}</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear bold-button" ng-click="save()">Save</button>
+    </ion-nav-buttons>
+    
+    <ion-content overflow-scroll="false" on-swipe-up="swipeUpOrDown()" on-swipe-down="swipeUpOrDown()">
+        <notify-user></notify-user>
+
+        <ul class="list no-margin-bottom">
+            <li class="item list-title">
+                <span>{{stop.name}}</span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Label this stop</span>
+                <input id="stopLabelInput" type="text" ng-model="data.stopLabel">
+            </li>
+        </ul>
+
+        <div class="padding list-select-title">
+            Select the route(s) you will take from this stop
+        </div>
+
+        <div class="list" ng-cloak> 
+            <div ng-repeat="route in data.routes track by route.id" class="list-item"> 
+                <ion-checkbox class="add-route" ng-class="{checked: route.checked === true}" ng-model="route.checked" ng-checked="route.checked"> 
+                    <span class="route-code">{{::route.code}}</span><span class="route-name">{{::route.shortname}}</span> 
+                </ion-checkbox> 
+            </div> 
+        </div>
+    </ion-content>
+
+    <!-- @if debug -->
+    <debug-panel minimized="minimized" class="debug-panel">
+        <a>X</a>
+        <div class="info" >
+            Routes: {{data.routes}}<br/>
+        </div>
+    </debug-panel>
+    <!-- @endif -->
+
+</ion-view>

@@ -1,0 +1,53 @@
+<ion-view>
+
+    <ion-nav-title>Find a stop</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon button-icon-large icon ion-android-locate" ng-disabled="!findStop.markersLoaded || !userPosition" ng-click="findStop.centerOnUser(true)"></button>
+    </ion-nav-buttons>
+
+    <ion-content padding="false" scroll="false">
+
+        <notify-user></notify-user>
+
+        <div class="over-map list no-margin-bottom">
+            <label class="item item-input find-stop-geocoder">
+                <ion-spinner ng-show="findStop.geocoder.searchInProgress"></ion-spinner>
+                <i ng-show="!findStop.geocoder.searchInProgress" class="icon ATicon-search"></i>
+                <input type="text" placeholder="Enter a stop no. or address" ng-change="findStop.search()" ng-model="findStop.geocoder.search" />
+            </label>
+
+            <div class="list" ng-show="findStop.geocoder.addresses.length">
+                <li class="item" ng-repeat="location in findStop.geocoder.addresses track by $index" ng-click="findStop.goToLocation(location)">{{location.address}}</li>
+            </div>
+
+            <div class="item item-divider action-instructions" ng-show="!findStop.mapDragged && !findStop.geocoder.addresses.length">
+                or, drag and zoom the map to locate accurately
+            </div>
+        </div>
+
+        <!-- data-tap-disabled attribute required to allow click events when coming back to this screen from the add routes screen. see:
+            http://forum.ionicframework.com/t/losing-event-binding/4111/3
+            http://ionicframework.com/docs/api/page/tap/
+        -->
+        <div data-tap-disabled="true">
+            <div id="addStopMap"></div>
+        </div>
+
+    </ion-content>
+
+    <!-- @if debug -->
+        <div class="geolocate" tabindex="0" style="position: relative; width:40px; height: 40px;">
+            <div class="ATicon-user" style="line-height: 37px;"></div>
+            <div class="radiator" style="line-height: 37px;"></div>
+        </div>
+        <debug-panel minimized="minimized" class="debug-panel">
+            <a>X</a>
+            <div class="info">
+                mapDragged: {{findStop.mapDragged}}<br/>
+                geocoder: {{findStop.geocoder}}<br/>
+            </div>
+
+        </debug-panel>
+    <!-- @endif -->
+
+</ion-view>

@@ -1,0 +1,91 @@
+/*
+*	rotate class for bus marker bearing
+*/
+@for $i from 0 through 359 {
+    .rotate-#{$i} {
+        -webkit-transform: rotate(#{$i}deg);
+        transform: rotate(#{$i}deg);
+    }
+}
+/*
+* 	placehodler reset
+*/
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content
+    }
+
+    :-moz-placeholder {
+        @content
+    }
+
+    ::-moz-placeholder {
+        @content
+    }
+
+    :-ms-input-placeholder {
+        @content
+    }
+}
+@include placeholder {
+    color: #999;
+    opacity: 1;
+    font-family: 'OpenSansItalic', arial, helvetica, sans-serif !important;
+}
+/*
+* ellipsis
+*/
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*
+*	marker animation
+*/
+@mixin keyframes($animation-name) {
+     @-webkit-keyframes #{$animation-name}{
+        @content;
+    }
+    @keyframes #{$animation-name} {
+         @content;
+    }
+}
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    animation: #{$str};
+}
+@mixin radiatorStart {
+    width: 0;
+    height: 0;
+    margin-top: 0;
+    margin-left: 0;
+}
+@mixin radiatorEnd {
+    margin-left: -40px;
+    margin-top: -40px;
+    width: 80px;
+    height: 80px;
+}
+@include keyframes(radiateGeolocation) {
+    0% {
+        border: 0 solid rgba(147, 189, 27, 1);
+        @include radiatorStart
+    }
+
+    100% {
+        border: 40px solid rgba(147, 189, 27, 0);
+        @include radiatorEnd
+    }
+}
+@include keyframes(radiateBus) {
+    0% {
+        border: 0 solid rgba(17, 132, 206, 1);
+        @include radiatorStart
+    }
+
+    100% {
+        border: 40px solid rgba(17, 132, 206, 0);
+        @include radiatorEnd
+    }
+}

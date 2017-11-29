@@ -1,0 +1,57 @@
+.label-action {
+    float: left;
+    color: $lochmara;
+}
+
+.label-action,
+.label-stop {
+    font-size: 17px;
+    max-width: 60%;
+    @include ellipsis;
+}
+
+.list-item {
+    position: relative;
+}
+
+.add-route.checked {
+    .route-code {
+        color: $lima;
+    }
+
+    .route-name {
+        color: #444;
+    }
+}
+
+.add-route .route-code {
+    display: inline-block;
+    min-width: 30%;
+    line-height: 1;
+    font-size: 30px;
+}
+
+.add-route .route-name {
+    /* TODO: this is shared with a _stop.scss rule - should probably make it generic */
+    display: inline-block;
+    font-size: 12px;
+    width: 60%;
+    white-space: normal;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: $shuttlegray;
+    vertical-align: top;
+}
+
+.ATicon-info {
+    font-size: 25px;
+    height: 100%;
+    line-height: 2.5;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 50px;
+    z-index: 2;
+    color: $lochmara;
+}

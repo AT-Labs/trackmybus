@@ -1,0 +1,44 @@
+.arrive-stop {
+    background-color: $lochmara !important;
+    color: $ATWhite;
+    border: 0 none !important;
+    border-radius: 10px;
+    padding: 4px;
+    text-align: center;
+
+    .ATicon-bus,
+    .ATicon-train,
+    .ATicon-ferry {
+        display: inline-block;
+        font-size: 14px;
+        margin-right: 4px;
+    }
+
+    .text {
+        display: inline-block;
+        font-size: 14px;
+    }
+}
+
+.footer {
+    text-align: center;
+    color: $ATWhite;
+    background-color: $lochmara;
+
+    div {
+        display: table;
+        margin: 0 auto;
+    }
+
+    p {
+        width: 200px;
+    }
+
+    .ATicon-clock {
+        margin: 0 10px 0 0;
+    }
+
+    span {
+        line-height: 1.5;
+    }
+}

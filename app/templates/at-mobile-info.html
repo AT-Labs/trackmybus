@@ -1,0 +1,43 @@
+<ion-modal-view class="atm-splash-container">
+    <ion-content scroll="true">
+        <div class="atm-splash">
+          <div class="atm-header">
+            <h1 class="row">
+                <img class="col logo" src="img/at-mobile-logo.png" srcset="img/at-mobile-logo.png 1x, img/at-mobile-logo@2x.png 2x, img/at-mobile-logo@3x.png 3x"/>
+                <span class="col col-center title">Download AT Mobile</span>
+              </h1>
+            <a href class="atm-cross" ng-click="closeAtMobileInfo()">
+              <img src="img/close.png" srcset="img/close.png 1x, img/close@2x.png 2x, img/close@3x.png 3x"/>
+            </a>
+          </div>
+          <div class="atm-subtitle" ng-switch="platform">
+            <span ng-switch-when="android">
+              We're excited to let you know that the <strong style="white-space: nowrap">AT Mobile</strong> app has had a face lift.
+              Take a look and see how you can use our newest app to do all the things you love.              
+            </span>
+            <span ng-switch-default>
+              <span ng-if="!atMobileSplash.isDecommisioned">From {{atMobileSplash.decommissioningDate}}, Track My Bus will no longer be supported by Auckland Transport.</span>
+              <span ng-if="atMobileSplash.isDecommisioned">Since {{atMobileSplash.decommissioningDate}}, Track My Bus is no longer supported by Auckland Transport.</span>
+              Download the <strong style="white-space: nowrap">AT Mobile</strong> app, it has all the great things you love and more!
+            </span>
+          </div>
+          
+          <div class="atm-content row">
+            <div class="col">
+              <img class="atm-device" ng-src="{{atMobileSplash.atMobileImg}}" ng-srcset="{{atMobileSplash.atMobileImgResp}}" />
+            </div>
+            <div class="col col-center">
+              <ul class="atm-features">
+                <li>Track buses and trains in real time</li>
+                <li>Save the stops that are most important to you</li>
+                <li>Find the buses that go past your stop</li>
+              </ul>
+            </div>
+          </div>
+          <div class="atm-footer">
+            <button class="button btn-download" ng-click="openAtMobile()">DOWNLOAD THE APP</button>
+            <button class="button btn-close" ng-click="closeAtMobileInfo()">CLOSE</button>
+          </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

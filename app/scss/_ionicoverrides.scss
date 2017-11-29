@@ -1,0 +1,93 @@
+/*
+ * checkbox-icon
+ */
+.checkbox .checkbox-icon:before,
+.checkbox input:before {
+    border: 2px solid $lima;
+}
+
+.checkbox input:checked + .checkbox-icon:before,
+.checkbox input:checked:before {
+    background-color: $lima;
+    border-color: $lima;
+}
+/*
+ * bar button icons
+ */
+.bar-dark .button.button-clear {
+    color: $azureradiance;
+}
+
+.bar {
+    .button {
+        color: $azureradiance;
+    }
+
+    .button.button-icon .icon:before,
+    .button.button-icon.icon-left:before,
+    .button.button-icon.icon-right:before,
+    .button.button-icon:before {
+        font-size: 17px;
+        color: $azureradiance;
+    }
+
+    .button.button-icon-large .icon:before,
+    .button.button-icon-large.icon-left:before,
+    .button.button-icon-large.icon-right:before,
+    .button.button-icon-large:before {
+        font-size: 24px;
+    }
+}
+/*
+ * popup input
+ */
+.popup {
+    input {
+        padding-left: 5px;
+    }
+}
+/*
+ * angular-loading-bar override (conflict with Ionic)
+ */
+#loading-bar {
+    .bar {
+        padding: 0;
+        border: 0 none;
+    }
+}
+
+/*
+ * Marker cluster colors
+ */
+ .marker-cluster {
+     color: $ATWhite;
+ }
+.marker-cluster-small {
+    background-color: rgba(lighten($pickledbluewood, 30%), 0.6) !important;
+    div {
+        background-color: rgba(lighten($pickledbluewood, 20%), 0.6) !important;
+        font-weight: 700 !important;
+    }
+}
+.marker-cluster-medium {
+    background-color: rgba(lighten($pickledbluewood, 20%), 0.6) !important;
+    div {
+        background-color: rgba(lighten($pickledbluewood, 10%), 0.6) !important;
+        font-weight: 700 !important;
+    }
+    
+}
+.marker-cluster-large {
+    background-color: rgba(lighten($pickledbluewood, 10%), 0.6) !important;
+    div {
+        background-color: rgba($pickledbluewood, 0.6) !important;
+        font-weight: 700 !important;
+    }
+}
+
+/*
+ * Loading bar
+ */
+ #loading-bar .bar {
+     height: 3px;
+ }

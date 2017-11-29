@@ -1,0 +1,56 @@
+<ion-view>
+
+    <ion-nav-title>{{stop.label}}</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear bold-button" ui-sref="addroutes({ stopCode: stopCode })">Edit</button>
+    </ion-nav-buttons>
+
+    <ion-content padding="false">
+
+        <notify-user></notify-user>
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="refresh()">
+        </ion-refresher>
+
+        <div class="list stop-list" ng-cloak>
+            <li class="item list-title">
+                <span>{{stop.name}}</span>
+            </li>
+
+            <li class="item {{departure.className}}" ng-repeat="departure in departures track by $index" ng-click="viewArrival(departure)">
+                <div ng-if="departure.available">
+                    <div class="left-column">
+                        <span class="route-code">{{departure.route}}</span>
+                        <span class="route-name">{{departure.dest}}</span>
+                    </div>
+                    <div class="right-column">
+                        <span class="departure-label" ng-if="departure.isScheduled">Scheduled</span>
+                        <span class="departure-time" ng-if="departure.isScheduled">{{departure.sched}}</span>
+                        <span class="departure-times" ng-if="departure.isFewStopsAway">
+                            <ng-pluralize count="departure.stopsAway" when="{'0': '', 'one': '1 STOP', 'other': '{} STOPS'}"></ng-pluralize>
+                            <br>AWAY
+                        </span>
+
+                        <!-- logic to display DUE or GONE, the ng-show expression is that long because 0 is falsey -->
+                        <span class="departure-times" ng-if="departure.isDepartedOrArrived">{{departure.departedOrArrivedLabel}}</span>
+                    </div>
+
+
+                    <i class="icon {{departure.iconClassName}}"></i>
+                </div>
+
+                <div ng-if="!departure.available" class="departure-message">{{departure.message}}</div>
+            </li>
+        </div>
+    </ion-content>
+
+    <!-- @if debug -->
+    <debug-panel minimized="minimized" class="debug-panel">
+        <a>X</a>
+        <div class="info">
+            Departures: {{departures}}<br/>
+        </div>
+    </debug-panel>
+    <!-- @endif -->
+
+</ion-view>

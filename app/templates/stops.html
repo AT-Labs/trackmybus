@@ -1,0 +1,48 @@
+<ion-view hide-back-button="true">
+
+    <ion-nav-title>Stops</ion-nav-title>
+    <ion-nav-buttons side="left">
+        <div class="ATlogo"></div>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="secondary">
+        <button ng-if="stops.length > 1" class="button button-icon button-icon-large icon ion-android-options" ng-class="{ active: data.showReorder }" ng-click="toggleReorder()"></button>
+        <button class="button button-icon icon ATicon-plus" ui-sref="findstop"></button>
+    </ion-nav-buttons>
+    
+    <ion-content padding="false">
+        <notify-user></notify-user>
+
+        <div class="item item-divider action-instructions" ng-hide="itemSwiped">
+            Swipe left for more options...
+        </div>
+        <ion-list ng-cloak show-reorder="data.showReorder">
+            <ion-item ng-repeat="stop in stops track by stop.id" item="stop" class="item-icon-right" ui-sref="stop({ stopCode: stop.code })">
+                <div class="stop-list-item-icon"><i class="{{::stop.icon}}"></i></div>
+                <div class="stop-list-item-title {{stop.className}}">{{stop.label}}</div>
+                <div class="stop-list-item-description padding-top">STOP {{::stop.code}} / {{::stop.name}}</div>
+                <i class="icon ATicon-page-right"></i>
+
+                <ion-option-button class="editDeleteButton editStop" ui-sref="addroutes({ stopCode: stop.code })">
+                    <span><span>Edit</span></span>
+                </ion-option-button>
+                <ion-option-button class="editDeleteButton deleteStop" ng-click="delete(stop)">
+                    <span><span>Delete</span></span>
+                </ion-option-button>
+                
+                <ion-reorder-button class="ion-navicon" on-reorder="moveStop(stop, $fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+
+    <!-- @if debug -->
+    <debug-panel minimized="minimized" class="debug-panel">
+        <a>X</a>
+        <div class="info" >
+            Data: {{data}}<br/>
+            Stops: {{stops}}
+        </div>
+    </debug-panel>
+    <!-- @endif -->
+
+</ion-view>
