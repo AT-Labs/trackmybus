@@ -96,10 +96,7 @@
                     var platform = ionic.Platform.platform();
                     $scope.platform = platform;
                     var atMobileSplashData = platform === 'android' ? appConfig.atMobileSplash.android : appConfig.atMobileSplash.ios;
-                    $scope.atMobileSplash = angular.extend(atMobileSplashData, {
-                        isDecommisioned: atMobileSplashData.decommissioningDate && atMobileSplashData.decommissioningDate.isBefore(moment()),
-                        decommissioningDate: atMobileSplashData.decommissioningDate && atMobileSplashData.decommissioningDate.format('D MMMM YYYY')
-                    });
+                    $scope.atMobileSplash = atMobileSplashData;
 
                     $scope.openAtMobile = function() {
                         if (window.cordova) {

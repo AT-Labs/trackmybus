@@ -15,7 +15,6 @@
                 atMobileImgResp: 'img/at-tmb-android.png 1x, img/at-tmb-android@2x.png 2x, img/at-tmb-android@3x.png 3x'
             },
             ios: {
-                decommissioningDate: moment('2018-02-01', 'YYYY-MM-DD'),
                 atMobileLink: 'https://itunes.apple.com/nz/app/at-mobile/id1207704356',
                 atMobileImg: 'img/at-tmb-ios.png',
                 atMobileImgResp: 'img/at-tmb-ios.png 1x, img/at-tmb-ios@2x.png 2x, img/at-tmb-ios@3x.png 3x'
