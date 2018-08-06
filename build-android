@@ -1,10 +1,26 @@
+#!/usr/bin/env bash
+
+# =======================
+# Preparetion
+# =======================
+# 1. set id, versionName and versionCode in <widget> of config.xml
+# 2 Download google-services.json to ~/Downloads
+# 3. Set AT API Subscription Key to the following variable
+AT_API_SUBSCRIPTION_KEY=XXXXXXXXXXXXX
+# 4. Download keystore file as ~/Downloads/1.keystore
+# 5. Set keystore password to the following variable
+ANDROID_KEY_STORE_PASSWORD=XXXXXXX
+# 6. Install nvm if you haven't
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
 #========================
 # Prepare android sdk tools
 # =======================
-Download android-tools-25.zip to ~/Downloads
-mv ~/Library/Android/sdk/tools ~/Library/Android/sdk/tools-backup
-unzip ~/Downloads/android-tools-25.zip -d ~/Library/Android/sdk/
-mv ~/Library/Android/sdk/android-tools-25 ~/Library/Android/sdk/tools
+# Download android-tools-25.zip to ~/Downloads
+# mv ~/Library/Android/sdk/tools ~/Library/Android/sdk/tools-backup
+# unzip ~/Downloads/android-tools-25.zip -d ~/Library/Android/sdk/
+# mv ~/Library/Android/sdk/android-tools-25 ~/Library/Android/sdk/tools
 
 #========================
 # setup node 6
@@ -17,7 +33,6 @@ nvm use v6
 # =======================
 # please remember to replace place holder with the api key before running this script
 
-API_SUBSCRIPTION_ID=XXXXXXXXXXXXXXXXXXXX
 sed -ia "s|API_SUBSCRIPTION_ID|$API_SUBSCRIPTION_ID|g" ~/git/trackmybus/app/js/config.js
 
 #========================
@@ -83,22 +98,20 @@ sleep 15s
 sleep 15s
 ./node_modules/.bin/cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=attrackmyride -s
 
-cp ~/Downloads/GoogleService-Info.plist ~/git/trackmybus/platforms/ios/Track\ My\ Bus/Resources
-
-# ========================
-# build for iOS
-# =======================
-# 
-# open xcode
-# set the Bundle Identifier in xcode: Targets > Track My Bus > General > Identity
-# set the Version and Build in xcode: Targets > Track My Bus > General > Identity
-# set design_resources/icon-1024.png as the 1024 x 1024 app icon in xcode: Targets > Track My Bus > General 
-# achive in xcode
+cp ~/Downloads/google-services.json ~/git/trackmybus/platforms/android
 
 # ========================
 # build for android
 # =======================
 
-# cordova build --release android
-# mv platforms/android/build/outputs/apk/android-release.apk platforms/android/build/outputs/apk/android-release-signed.apk
+./node_modules/.bin/cordova build --release android
+mv platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-signed.apk
+# if jarsigner failed, run follwoing command line and try again.
+# zip -d platforms/android/build/outputs/apk/android-release-signed.apk META-INF/\*
 
+jarsigner -storepass $ANDROID_KEY_STORE_PASSWORD -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/Downloads/1.keystore platforms/android/build/outputs/apk/android-release-signed.apk wheres-my-bus
+
+jarsigner -verify -verbose -certs platforms/android/build/outputs/apk/android-release-signed.apk
+
+~/Library/Android/sdk/build-tools/23.0.1/zipalign  -v 4 platforms/android/build/outputs/apk/android-release-signed.apk platforms/android/build/outputs/apk/android-release.apk
+ No newline at end of file
