@@ -48,9 +48,7 @@
             var atMobileInfoDisplayed = getPreference('atMobileInfoDisplayed');
             var displayDate = moment(atMobileInfoDisplayed);
             if (_.isString(atMobileInfoDisplayed) && displayDate.isValid()) {
-                var atMobileSplashData = isAndroid ? appConfig.atMobileSplash.android : appConfig.atMobileSplash.ios;
-                var isDecommissioned = atMobileSplashData.decommissioningDate && moment().isAfter(atMobileSplashData.decommissioningDate);
-                return isDecommissioned || moment().subtract(7, 'days').isAfter(displayDate);
+                return moment().subtract(7, 'days').isAfter(displayDate);
             }
             return true;
         }

@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+
+# =======================
+# Preparetion
+# =======================
+# 1. set id, versionName and versionCode in <widget> of config.xml
+# 2 Download google-services.json to ~/Downloads
+# 3. Set AT API Subscription Key to the following variable
+AT_API_SUBSCRIPTION_KEY=XXXXXXXXXXXXX
+# 4. Download keystore file as ~/Downloads/1.keystore
+# 5. Set keystore password to the following variable
+ANDROID_KEY_STORE_PASSWORD=XXXXXXX
+# 6. Install nvm if you haven't
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+#========================
+# Prepare android sdk tools
+# =======================
+# Download android-tools-25.zip to ~/Downloads
+# mv ~/Library/Android/sdk/tools ~/Library/Android/sdk/tools-backup
+# unzip ~/Downloads/android-tools-25.zip -d ~/Library/Android/sdk/
+# mv ~/Library/Android/sdk/android-tools-25 ~/Library/Android/sdk/tools
+
+#========================
+# setup node 6
+# =======================
+nvm install 6.14.3
+nvm use v6
+
+#========================
+# setup auckland transport api key
+# =======================
+# please remember to replace place holder with the api key before running this script
+
+sed -ia "s|API_SUBSCRIPTION_ID|$API_SUBSCRIPTION_ID|g" ~/git/trackmybus/app/js/config.js
+
+#========================
+# clear all
+# =======================
+rm -fr app/lib platforms plugins www
+
+#========================
+# install packages
+# =======================
+npm install
+
+#========================
+# reinstall cordova plugins
+# =======================
+
+./node_modules/.bin/cordova plugin rm cordova-plugin-customurlscheme
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-device
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-geolocation
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-file
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-statusbar
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-firebase
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-google-analytics
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-splashscreen
+sleep 5s
+./node_modules/.bin/cordova plugin rm ionic-plugin-keyboard
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-whitelist
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-network-information
+sleep 5s
+./node_modules/.bin/cordova plugin rm cordova-plugin-inappbrowser
+sleep 5s
+
+./node_modules/.bin/cordova plugin add cordova-plugin-device@2.0.1 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-geolocation@2.4.3 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-file@4.3.3 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-statusbar@2.2.3 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-firebase@0.1.25 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-google-analytics@0.8.1 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-splashscreen@4.0.3 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add ionic-plugin-keyboard@2.2.1 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-whitelist@1.3.3 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-network-information@1.3.4 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-inappbrowser@1.7.2 -s
+sleep 15s
+./node_modules/.bin/cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=attrackmyride -s
+
+cp ~/Downloads/google-services.json ~/git/trackmybus/platforms/android
+
+# ========================
+# build for android
+# =======================
+
+./node_modules/.bin/cordova build --release android
+mv platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-signed.apk
+# if jarsigner failed, run follwoing command line and try again.
+# zip -d platforms/android/build/outputs/apk/android-release-signed.apk META-INF/\*
+
+jarsigner -storepass $ANDROID_KEY_STORE_PASSWORD -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/Downloads/1.keystore platforms/android/build/outputs/apk/android-release-signed.apk wheres-my-bus
+
+jarsigner -verify -verbose -certs platforms/android/build/outputs/apk/android-release-signed.apk
+
+~/Library/Android/sdk/build-tools/23.0.1/zipalign  -v 4 platforms/android/build/outputs/apk/android-release-signed.apk platforms/android/build/outputs/apk/android-release.apk
+ No newline at end of file

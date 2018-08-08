@@ -20,7 +20,7 @@ Track My Bus
 * Install libs with npm, gulp, and restore ios/android platforms, plugins for cordova. (Refer to package.json)
 
 ```bash
-$ cd /path/to/at_metro_app
+$ cd /path/to/trackmybus
 $ npm install
 ```
 
@@ -134,6 +134,6 @@ Known issues with hokks permissions:
 execute from git folder:
 
 ```bash
-$sudo chmod -R 777 at_metro_app
-$sudo chown -Rv <username> at_metro_app
+$sudo chmod -R 777 trackmybus
+$sudo chown -Rv <username> trackmybus
 ```
